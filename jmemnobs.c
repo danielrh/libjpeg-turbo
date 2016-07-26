@@ -22,7 +22,7 @@
 #include "jinclude.h"
 #include "jpeglib.h"
 #include "jmemsys.h"            /* import the system-dependent declarations */
-
+#include "hackweekmgr.h"
 #ifndef HAVE_STDLIB_H           /* <stdlib.h> should declare malloc(),free() */
 extern void *malloc (size_t size);
 extern void free (void *ptr);
@@ -37,13 +37,13 @@ extern void free (void *ptr);
 GLOBAL(void *)
 jpeg_get_small (j_common_ptr cinfo, size_t sizeofobject)
 {
-  return (void *) malloc(sizeofobject);
+  return (void *) hackweekmgr_alloc(sizeofobject);
 }
 
 GLOBAL(void)
 jpeg_free_small (j_common_ptr cinfo, void *object, size_t sizeofobject)
 {
-  free(object);
+  hackweekmgr_free(object);
 }
 
 
@@ -54,13 +54,13 @@ jpeg_free_small (j_common_ptr cinfo, void *object, size_t sizeofobject)
 GLOBAL(void *)
 jpeg_get_large (j_common_ptr cinfo, size_t sizeofobject)
 {
-  return (void *) malloc(sizeofobject);
+  return (void *) hackweekmgr_alloc(sizeofobject);
 }
 
 GLOBAL(void)
 jpeg_free_large (j_common_ptr cinfo, void *object, size_t sizeofobject)
 {
-  free(object);
+  hackweekmgr_free(object);
 }
 
 

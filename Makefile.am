@@ -17,10 +17,10 @@ pkgconfig_DATA += pkgscripts/libturbojpeg.pc
 endif
 
 HDRS = jchuff.h jdct.h jdhuff.h jerror.h jinclude.h jmemsys.h jmorecfg.h \
-	jpegint.h jpeglib.h jversion.h jsimd.h jsimddct.h jpegcomp.h \
+	jpegint.h jpeglib.h jversion.h hackweekmgr.h jsimd.h jsimddct.h jpegcomp.h \
 	jpeg_nbits_table.h
 
-libjpeg_la_SOURCES = $(HDRS) jcapimin.c jcapistd.c jccoefct.c jccolor.c \
+libjpeg_la_SOURCES = $(HDRS) hackweekmgr.c jcapimin.c jcapistd.c jccoefct.c jccolor.c \
 	jcdctmgr.c jchuff.c jcinit.c jcmainct.c jcmarker.c jcmaster.c \
 	jcomapi.c jcparam.c jcphuff.c jcprepct.c jcsample.c jctrans.c \
 	jdapimin.c jdapistd.c jdatadst.c jdatasrc.c jdcoefct.c jdcolor.c \
